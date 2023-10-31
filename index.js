@@ -3,15 +3,18 @@ const app = express()
 const connectDb = require('./helper/dbConnection')
 const bookModel = require('./models/book')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 // database connection
 connectDb()
 
+app.use(cors())
 // Parse incoming request bodies
 app.use(bodyParser.json())
 
-// serving static html file
-app.use(express.static('public'));
+app.get('/',(req,res)=>{
+    res.send('welcome to book manager api')
+})
 
 // create new book
 app.post('/create-book', async (req, res) => {
@@ -25,7 +28,7 @@ app.post('/create-book', async (req, res) => {
 
     try {
         const savedBook = await newBook.save()
-        res.status(200).json(savedBook)
+        res.status(200).json({status: true, message: 'new book added'})
     }
     catch (err) {
         res.status(500).json({ "error while creating new book": err })
@@ -48,7 +51,7 @@ app.get('/get-book-details/:bookId', async (req, res) => {
     const { bookId } = req.params
     try {
         const book = await bookModel.findOne({ _id: bookId })
-        res.status(200).json(book)
+        res.status(200).json({status:true, book: book})
     }
     catch (err) {
         res.status(500).json({ "error while get specific book details": err })
