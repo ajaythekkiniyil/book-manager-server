@@ -7,10 +7,11 @@ Welcome to the documentation for the nodejs-express API!
 ## Table of Contents
 - [How to start in local](#How-to-start-in-local)
 - [API Endpoints](#api-endpoints)
+- [Deployment details](#Deployment-details)
 
 ## How to start in local
 node version 18.0.0
-1. git clone git https://github.com/ajaythekkiniyil/book-manager-server.git
+1. git clone https://github.com/ajaythekkiniyil/book-manager-server.git
 2. npm install
 3. npm start
 
@@ -24,6 +25,12 @@ node version 18.0.0
   - `title` (string): [title of book]
   - `author` (string): [author name]
   - `summary` (string): [description of book]
+  example: 
+  {
+    "title": "ahifsdfsd",
+    "author": "ahidsfsdf",
+    "summary": ""
+  }
 - **Response sample**:
     {
         "status": true,
@@ -97,3 +104,21 @@ node version 18.0.0
         "status": true,
         "message": "book deleted"
     }
+
+## Deployment details
+  **express api**
+    - created a EC2 ubuntu instance
+    - using nvm node installed
+    - mongodb installed
+    - git clone https://github.com/ajaythekkiniyil/book-manager-server.git 
+    - cd git clone book-manager-server/ 
+    - npm install
+    - npm start
+    - Installing PM2 (a process manager for Node.js applications) -> sudo npm install pm2@latest -g
+    - pm2 start index.js - (express server started on port 3000)
+    - Setting Up Nginx as a Reverse Proxy Server
+    
+    - url restApi -> http://13.51.235.247/
+
+  **frontend app**
+    - 
