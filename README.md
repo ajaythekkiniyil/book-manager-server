@@ -106,19 +106,25 @@ node version 18.0.0
     }
 
 ## Deployment details
-  **express api**
-    - created a EC2 ubuntu instance
-    - using nvm node installed
-    - mongodb installed
-    - git clone https://github.com/ajaythekkiniyil/book-manager-server.git 
-    - cd git clone book-manager-server/ 
-    - npm install
-    - npm start
-    - Installing PM2 (a process manager for Node.js applications) -> sudo npm install pm2@latest -g
-    - pm2 start index.js - (express server started on port 3000)
-    - Setting Up Nginx as a Reverse Proxy Server
-    
-    - url restApi -> http://13.51.235.247/
+**express api**
+- created a EC2 ubuntu instance
+- using nvm node installed
+- mongodb installed
+- git clone https://github.com/ajaythekkiniyil/book-manager-server.git 
+- cd git clone book-manager-server/ 
+- npm install
+- npm start
+- Installing PM2 (a process manager for Node.js applications) -> sudo npm install pm2@latest -g
+- pm2 start index.js - (express server started on port 3000)
+- Setting Up Nginx as a Reverse Proxy Server
 
-  **frontend app**
-    - 
+- url restApi -> http://13.51.235.247/
+
+
+**frontend app**
+- created s3 backet
+- Static website hosting enabled
+- updated Bucket policy
+- uploaded build file
+
+- url frontend -> http://book-manager-client.s3-website.eu-north-1.amazonaws.com/
